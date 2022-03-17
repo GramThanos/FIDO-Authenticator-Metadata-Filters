@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<title>FIDO Authenticator Metadata Filters</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h1>FIDO Authenticator Metadata Filters</h1>
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th scope="row">nextUpdate</th>
+							<td id="nextUpdate">
+							</td>
+							<td><button type="button" class="btn btn-outline-primary btn-sm clear-options" id="load-latest-jwt">get</button></td>
+						</tr>
+						<tr>
+							<th scope="row">protocolFamily</th>
+							<td>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-protocolFamily-uaf" value="uaf">
+									<label class="form-check-label" for="option-protocolFamily-uaf">uaf</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-protocolFamily-u2f" value="u2f">
+									<label class="form-check-label" for="option-protocolFamily-u2f">u2f</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-protocolFamily-fido2" value="fido2" checked>
+									<label class="form-check-label" for="option-protocolFamily-fido2">fido2</label>
+								</div>
+							</td>
+							<td><button type="button" class="btn btn-outline-primary btn-sm clear-options">clear</button></td>
+						</tr>
+						<tr>
+							<th scope="row">statusReport <small>(latest)</small></th>
+							<td>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-NOT_FIDO_CERTIFIED" value="NOT_FIDO_CERTIFIED">
+									<label class="form-check-label" for="option-statusReport-NOT_FIDO_CERTIFIED">NOT_FIDO_CERTIFIED</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-FIDO_CERTIFIED" value="FIDO_CERTIFIED" checked>
+									<label class="form-check-label" for="option-statusReport-FIDO_CERTIFIED">FIDO_CERTIFIED</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-USER_VERIFICATION_BYPASS" value="USER_VERIFICATION_BYPASS">
+									<label class="form-check-label" for="option-statusReport-USER_VERIFICATION_BYPASS">USER_VERIFICATION_BYPASS</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-ATTESTATION_KEY_COMPROMISE" value="ATTESTATION_KEY_COMPROMISE">
+									<label class="form-check-label" for="option-statusReport-ATTESTATION_KEY_COMPROMISE">ATTESTATION_KEY_COMPROMISE</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-USER_KEY_REMOTE_COMPROMISE" value="USER_KEY_REMOTE_COMPROMISE">
+									<label class="form-check-label" for="option-statusReport-USER_KEY_REMOTE_COMPROMISE">USER_KEY_REMOTE_COMPROMISE</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-USER_KEY_PHYSICAL_COMPROMISE" value="USER_KEY_PHYSICAL_COMPROMISE">
+									<label class="form-check-label" for="option-statusReport-USER_KEY_PHYSICAL_COMPROMISE">USER_KEY_PHYSICAL_COMPROMISE</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-UPDATE_AVAILABLE" value="UPDATE_AVAILABLE">
+									<label class="form-check-label" for="option-statusReport-UPDATE_AVAILABLE">UPDATE_AVAILABLE</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-REVOKED" value="REVOKED">
+									<label class="form-check-label" for="option-statusReport-REVOKED">REVOKED</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-SELF_ASSERTION_SUBMITTED" value="SELF_ASSERTION_SUBMITTED">
+									<label class="form-check-label" for="option-statusReport-SELF_ASSERTION_SUBMITTED">SELF_ASSERTION_SUBMITTED</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-FIDO_CERTIFIED_L1" value="FIDO_CERTIFIED_L1" checked>
+									<label class="form-check-label" for="option-statusReport-FIDO_CERTIFIED_L1">FIDO_CERTIFIED_L1</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-FIDO_CERTIFIED_L1plus" value="FIDO_CERTIFIED_L1plus" checked>
+									<label class="form-check-label" for="option-statusReport-FIDO_CERTIFIED_L1plus">FIDO_CERTIFIED_L1plus</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-FIDO_CERTIFIED_L2" value="FIDO_CERTIFIED_L2" checked>
+									<label class="form-check-label" for="option-statusReport-FIDO_CERTIFIED_L2">FIDO_CERTIFIED_L2</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-FIDO_CERTIFIED_L2plus" value="FIDO_CERTIFIED_L2plus" checked>
+									<label class="form-check-label" for="option-statusReport-FIDO_CERTIFIED_L2plus">FIDO_CERTIFIED_L2plus</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-FIDO_CERTIFIED_L3" value="FIDO_CERTIFIED_L3" checked>
+									<label class="form-check-label" for="option-statusReport-FIDO_CERTIFIED_L3">FIDO_CERTIFIED_L3</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-statusReport-FIDO_CERTIFIED_L3plus" value="FIDO_CERTIFIED_L3plus" checked>
+									<label class="form-check-label" for="option-statusReport-FIDO_CERTIFIED_L3plus">FIDO_CERTIFIED_L3plus</label>
+								</div>
+							</td>
+							<td><button type="button" class="btn btn-outline-primary btn-sm clear-options">clear</button></td>
+						</tr>
+						<tr>
+							<th scope="row">cryptoStrength</th>
+							<td>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-cryptoStrength-128" value="128">
+									<label class="form-check-label" for="option-cryptoStrength-128">128</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-cryptoStrength-256" value="256">
+									<label class="form-check-label" for="option-cryptoStrength-256">256</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-cryptoStrength-512" value="512">
+									<label class="form-check-label" for="option-cryptoStrength-512">512</label>
+								</div>
+							</td>
+							<td><button type="button" class="btn btn-outline-primary btn-sm clear-options">clear</button></td>
+						</tr>
+						<tr>
+							<th scope="row">keyProtection</th>
+							<td>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-keyProtection-software" value="software">
+									<label class="form-check-label" for="option-keyProtection-software">software</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-keyProtection-hardware" value="hardware">
+									<label class="form-check-label" for="option-keyProtection-hardware">hardware</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-keyProtection-tee" value="tee">
+									<label class="form-check-label" for="option-keyProtection-tee">tee</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-keyProtection-secure_element" value="secure_element">
+									<label class="form-check-label" for="option-keyProtection-secure_element">secure_element</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-keyProtection-remote_handle" value="remote_handle">
+									<label class="form-check-label" for="option-keyProtection-remote_handle">remote_handle</label>
+								</div>
+								<div class="form-select-inline">
+									<select class="form-select" aria-label="Select mode" style="width: 120px;float: right;" id="option-keyProtection-mode">
+										<option>Select mode</option>
+										<option value="AND">AND mode</option>
+										<option value="OR" selected>OR mode</option>
+									</select>
+								</div>
+							</td>
+							<td><button type="button" class="btn btn-outline-primary btn-sm clear-options">clear</button></td>
+						</tr>
+						<tr>
+							<th scope="row">matcherProtection</th>
+							<td>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-matcherProtection-software" value="software">
+									<label class="form-check-label" for="option-matcherProtection-software">software</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-matcherProtection-tee" value="tee">
+									<label class="form-check-label" for="option-matcherProtection-tee">tee</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-matcherProtection-on_chip" value="on_chip">
+									<label class="form-check-label" for="option-matcherProtection-on_chip">on_chip</label>
+								</div>
+								<div class="form-select-inline">
+									<select class="form-select" aria-label="Select mode" style="width: 120px;float: right;" id="option-matcherProtection-mode">
+										<option>Select mode</option>
+										<option value="AND">AND mode</option>
+										<option value="OR" selected>OR mode</option>
+									</select>
+								</div>
+							</td>
+							<td><button type="button" class="btn btn-outline-primary btn-sm clear-options">clear</button></td>
+						</tr>
+						<tr>
+							<th scope="row">userVerificationMethod</th>
+							<td>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-presence_internal" value="presence_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-presence_internal">presence_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-fingerprint_internal" value="fingerprint_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-fingerprint_internal">fingerprint_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-passcode_internal" value="passcode_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-passcode_internal">passcode_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-voiceprint_internal" value="voiceprint_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-voiceprint_internal">voiceprint_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-faceprint_internal" value="faceprint_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-faceprint_internal">faceprint_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-location_internal" value="location_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-location_internal">location_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-eyeprint_internal" value="eyeprint_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-eyeprint_internal">eyeprint_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-pattern_internal" value="pattern_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-pattern_internal">pattern_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-handprint_internal" value="handprint_internal">
+									<label class="form-check-label" for="option-userVerificationMethod-handprint_internal">handprint_internal</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-passcode_external" value="passcode_external">
+									<label class="form-check-label" for="option-userVerificationMethod-passcode_external">passcode_external</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-pattern_external" value="pattern_external">
+									<label class="form-check-label" for="option-userVerificationMethod-pattern_external">pattern_external</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-none" value="none">
+									<label class="form-check-label" for="option-userVerificationMethod-none">none</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="option-userVerificationMethod-all" value="all">
+									<label class="form-check-label" for="option-userVerificationMethod-all">all</label>
+								</div>
+								<div class="form-select-inline">
+									<select class="form-select" aria-label="Select mode" style="width: 120px;float: right;" id="option-userVerificationMethod-mode">
+										<option>Select mode</option>
+										<option value="AND" selected>AND mode</option>
+										<option value="OR">OR mode</option>
+									</select>
+								</div>
+							</td>
+							<td><button type="button" class="btn btn-outline-primary btn-sm clear-options">clear</button></td>
+						</tr>
+						<tr>
+							<th scope="row">Results <span id="results"></span></th>
+							<td>
+								<table id="results-details" style="width:100%;"></table>
+							</td>
+							<td>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row" style="padding-bottom: 20px;">
+			<div class="col">Copyright &copy; 2022, Athanasios Vasileios Grammatopoulos</div>
+		</div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<script src="jwt-load.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
