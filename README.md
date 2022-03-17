@@ -1,5 +1,9 @@
 # FIDO-Authenticator-Metadata-Filters
-A small web application to filter authenticator devices based on their metadata provided by the [FIDO Alliance Metadata Service](https://fidoalliance.org/metadata/)
+A small web application to filter authenticator devices based on their metadata provided by the [FIDO Alliance Metadata Service](https://fidoalliance.org/metadata/).
+
+The application loads and provides a UI to filter the authenticators based on their characteristics.
+
+Web Application: https://gramthanos.github.io/FIDO-Authenticator-Metadata-Filters/
 
 ___
 
@@ -7,7 +11,11 @@ ___
 ### Preview
 
 ![Preview 1](preview/preview-1.png)
+Found 11 certified fido2 authenticator devices protected by hardware mechanics with fingerprint detection capabilities.
+
+
 ![Preview 2](preview/preview-2.png)
+Found 4 certified fido2 authenticator devices protected by hardware mechanics with face detection capabilities.
 
 ___
 
