@@ -3,7 +3,16 @@ A small web application to filter authenticator devices based on their metadata 
 
 ___
 
-# About
+
+### Preview
+
+![Preview 1](preview/preview-1.png)
+![Preview 2](preview/preview-2.png)
+
+___
+
+
+### About
 This small project was created in order to generate statistics regarding the availability of FIDO authenticator devices that cover specific requirments.
 
 ___
