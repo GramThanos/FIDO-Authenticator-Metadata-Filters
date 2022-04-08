@@ -29,7 +29,7 @@
 // Results Generation
 	
 	// Filter data based on selected options
-	let generateResults = function(nextUpdate, data) {
+	window.generateResults = function(nextUpdate, data) {
 		let isOutdated = new Date().getTime() > new Date(nextUpdate).getTime();
 		document.getElementById('nextUpdate').textContent = nextUpdate + ' ';
 		let tag = document.createElement('span');
